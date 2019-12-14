@@ -84,3 +84,16 @@ Do:
 Expect (10 times incremented color code):
   #ffffff
 
+
+#############################################
+
+Given (count increment of certain color):
+  #a0a000
+
+Do:
+  lllll
+  5\<space>
+
+Expect (10 times incremented color code):
+  #a0a050
+
