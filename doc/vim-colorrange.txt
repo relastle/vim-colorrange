@@ -4,7 +4,7 @@ VIM-COLORRANGE - TABLE OF CONTENTS
 ==============================================================================
 CONTENTS                                               *vim-colorrange-contents*
 
-Introduction       |vim-colorrange-introduction|
+INTRODUCTION       |vim-colorrange-introduction|
 INSTALLATION       |vim-colorrange-installation|
 COMMANDS           |vim-colorrange-commands|
 USAGE              |vim-colorrange-usage|
@@ -12,7 +12,7 @@ LICENSE            |vim-colorrange-license|
 
 
 ==============================================================================
-VIM-COLORRANGE.VIM                                 *vim-colorrange-introduction*
+INTRODUCTION                                       *vim-colorrange-introduction*
 
 https://github.com/relastle/vim-colorrange
 
