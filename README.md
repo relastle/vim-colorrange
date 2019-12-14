@@ -4,6 +4,8 @@
 
 ## Demonstration
 
+[demo](./figures/demo.gif)
+
 ## Installation
 
 Using vim-plug (https://github.com/junegunn/vim-plug)
