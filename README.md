@@ -4,7 +4,7 @@
 
 ## Demonstration
 
-[demo](./figures/demo.gif)
+![demo](./figures/demo.gif)
 
 ## Installation
 
