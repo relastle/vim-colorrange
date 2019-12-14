@@ -6,8 +6,7 @@ fi
 nvim -Es -u <(cat << EOF
 filetype off
 set rtp+=$(pwd)/vader.vim
-set rtp+=$(pwd)/plugin
-set rtp+=$(pwd)/autoload
+set rtp+=$(pwd)
 filetype plugin indent on
 syntax enable
 EOF) -c 'Vader! tests/*'
