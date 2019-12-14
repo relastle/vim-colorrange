@@ -1,5 +1,10 @@
 #############################################
 
+Execute:
+  nnoremap <Space> :ColorrangeIncrement<CR>
+
+#############################################
+
 Given (Color change of R G B all):
   hogehoge #000000
 
@@ -14,10 +19,8 @@ Expect (Incremented color code):
 Given (Color change of R 2nd digit):
   #000000
 
-Before (move corsor right):
-  norm l
-
 Execute:
+  norm l
   ColorrangeIncrement
 
 Expect (Incremented color code):
@@ -28,10 +31,8 @@ Expect (Incremented color code):
 Given (corner case test for increase in digit):
   #0f0000
 
-Before (move corsor right):
-  norm ll
-
 Execute:
+  norm ll
   ColorrangeIncrement
 
 Expect (Incremented color code):
@@ -42,10 +43,8 @@ Expect (Incremented color code):
 Given (corner case test for decrease in digit):
   #00f000
 
-Before (move corsor right):
-  norm llll
-
 Execute:
+  norm llll
   ColorrangeDecrement
 
 Expect (Decremented color code):
@@ -62,3 +61,26 @@ Execute:
 
 Expect (Unchanged text):
   #abcdef hogehoge
+
+#############################################
+
+Given (count increment):
+  #000000
+
+Do:
+  10\<space>
+
+Expect (10 times incremented color code):
+  #0a0a0a
+
+#############################################
+
+Given (Exeed maximum):
+  #000000
+
+Do:
+  300\<space>
+
+Expect (10 times incremented color code):
+  #ffffff
+
