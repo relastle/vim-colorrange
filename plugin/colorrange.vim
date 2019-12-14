@@ -9,14 +9,25 @@ if exists('loaded_plugin_vim_colorrange') || &compatible
 endif
 let loaded_plugin_vim_colorrange=1
 
-function s:increment() abort
-  return colorrange#modify_current_line_color('+')
+" Get the count prefixed agains Ex command
+function s:get_given_count(count)
+  if a:count == 0
+    return 1
+  else
+    return a:count - line('.') + 1
+  endif
 endfunction
 
-function s:decrement() abort
-  return colorrange#modify_current_line_color('-')
+function s:increment(count) abort
+  let l:count = s:get_given_count(a:count)
+  return colorrange#modify_current_line_color(l:count, '+')
+endfunction
+
+function s:decrement(count) abort
+  let l:count = s:get_given_count(a:count)
+  return colorrange#modify_current_line_color(l:count, '-')
 endfunction
 
 
-command! ColorrangeIncrement call s:increment()
-command! ColorrangeDecrement call s:decrement()
+command! -count ColorrangeIncrement call s:increment(<count>)
+command! -count ColorrangeDecrement call s:decrement(<count>)

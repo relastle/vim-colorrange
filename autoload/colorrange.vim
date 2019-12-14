@@ -4,7 +4,7 @@
 " Last Modified Date: 14.12.2019
 " Last Modified By  : Hiroki Konishi <relastle@gmail.com>
 
-function colorrange#modify_current_line_color(operator) abort
+function colorrange#modify_current_line_color(count, operator) abort
   let l:pos = getpos('.')
   let l:cursor_index = l:pos[2]
   let l:line = getline(l:pos[1])
@@ -20,9 +20,9 @@ function colorrange#modify_current_line_color(operator) abort
   let l:target_color_code = colorrange#find_color_code(l:line)
 
   if l:cursor_status == 0
-    let l:arg_input = a:operator . '#010101'
+    let l:arg_input = a:operator . '#' . repeat(printf('%02x', min([a:count, 255])), 3)
   else
-    let l:arg_input = a:operator . '#' . repeat('0', l:cursor_status - 1) . '1' . repeat('0', 6 - l:cursor_status)
+    let l:arg_input = a:operator . '#' . repeat('0', l:cursor_status - 1) . a:count . repeat('0', 6 - l:cursor_status)
   endif
   let l:res_color_code = colorrange#change_color(l:target_color_code, l:arg_input)
   let l:res_line = l:line[ : l:color_code_index] . l:res_color_code . l:line[l:color_code_index+7 :]
