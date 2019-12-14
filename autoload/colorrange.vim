@@ -4,6 +4,26 @@
 " Last Modified Date: 14.12.2019
 " Last Modified By  : Hiroki Konishi <relastle@gmail.com>
 
+" Get the count prefixed agains Ex command
+function! colorrange#get_given_count(count) abort
+  if a:count == 0
+    return 1
+  else
+    return a:count - line('.') + 1
+  endif
+endfunction
+
+function! colorrange#increment(count) abort
+  let l:count = colorrange#get_given_count(a:count)
+  return colorrange#modify_current_line_color(l:count, '+')
+endfunction
+
+function! colorrange#decrement(count) abort
+  let l:count = colorrange#get_given_count(a:count)
+  return colorrange#modify_current_line_color(l:count, '-')
+endfunction
+
+
 function colorrange#modify_current_line_color(count, operator) abort
   let l:pos = getpos('.')
   let l:cursor_index = l:pos[2]
