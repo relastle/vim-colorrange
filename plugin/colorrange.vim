@@ -4,10 +4,10 @@
 " Last Modified Date: 14.12.2019
 " Last Modified By  : Hiroki Konishi <relastle@gmail.com>
 
-if exists('did_plugin_vim_colorrange') || &compatible
+if exists('loaded_plugin_vim_colorrange') || &compatible
     finish
 endif
-let did_plugin_vim_colorrange=1
+let loaded_plugin_vim_colorrange=1
 
 function s:increment() abort
   return colorrange#modify_current_line_color('+')
