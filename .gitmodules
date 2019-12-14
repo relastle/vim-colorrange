@@ -1,3 +1,0 @@
-[submodule "vader.vim"]
-	path = vader.vim
-	url = https://github.com/junegunn/vader.vim
