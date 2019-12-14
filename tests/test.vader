@@ -1,6 +1,64 @@
-Execute (test assertion):
-  %d
-  Assert 1 == line('$')
+#############################################
 
-  setf python
-  AssertEqual 'python', &filetype
+Given (Color change of R G B all):
+  hogehoge #000000
+
+Execute:
+  ColorrangeIncrement
+
+Expect (Incremented color code):
+  hogehoge #010101
+
+#############################################
+
+Given (Color change of R 2nd digit):
+  #000000
+
+Before (move corsor right):
+  norm l
+
+Execute:
+  ColorrangeIncrement
+
+Expect (Incremented color code):
+  #100000
+
+#############################################
+
+Given (corner case test for increase in digit):
+  #0f0000
+
+Before (move corsor right):
+  norm ll
+
+Execute:
+  ColorrangeIncrement
+
+Expect (Incremented color code):
+  #100000
+
+#############################################
+
+Given (corner case test for decrease in digit):
+  #00f000
+
+Before (move corsor right):
+  norm llll
+
+Execute:
+  ColorrangeDecrement
+
+Expect (Decremented color code):
+  #00ef00
+
+#############################################
+
+Given (nothing is happen):
+  #abcdef hogehoge
+
+Execute:
+  norm W
+  ColorrangeDecrement
+
+Expect (Unchanged text):
+  #abcdef hogehoge
