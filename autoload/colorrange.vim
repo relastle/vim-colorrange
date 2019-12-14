@@ -124,7 +124,6 @@ function! colorrange#change_color(target_color_code, arg_color_input) abort
   " parse arg color code
   let l:validation_res = colorrange#validate_color_code(a:arg_color_input)
   let l:arg_color_code = l:validation_res[0]
-  echom 'l:arg_color_code: ' . string(l:arg_color_code)
   if l:arg_color_code ==# ''
     return ''
   endif
