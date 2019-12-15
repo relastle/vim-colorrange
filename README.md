@@ -8,7 +8,7 @@
 
 ## Installation
 
-Using vim-plug (https://github.com/junegunn/vim-plug)
+Using [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
 Plug 'relastle/vim-colorrange'
